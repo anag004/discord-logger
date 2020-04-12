@@ -51,13 +51,13 @@ class MyClient(discord.Client):
                 break
             if output:
                 await self.channel.send(output)
-                print(output)
+                sys.stdout.write(output)
         
         output = proc.stderr.read().decode('utf-8')
 
         if output != '':
             await self.channel.send("STDERR: " + output)
-            print(output)
+            sys.stdout.write(output)
         
         if proc.returncode == 0:
             print("Process exited normally")
@@ -78,4 +78,4 @@ channel_name = sys.argv[2]
 desc = sys.argv[3]
 
 client = MyClient(cmd, channel_name, desc)
-client.run('token')
+client.run('Njk4OTEzNzcxNTk4NjQzMjYy.XpMwUg.dDQgXdMbVuBkd6mNvOTUYR3UhPY')
