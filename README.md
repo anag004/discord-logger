@@ -30,6 +30,7 @@ This bot enables two-way communication between many bots on a single channel. Es
 Usage
 
 ```
+export DISCORD_TOKEN=<your token>
 python3 serverbot.py <port> <name>
 ```
 
