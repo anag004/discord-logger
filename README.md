@@ -1,1 +1,3 @@
-A simple discord bot to log process output to a channel
+# Discord-Logger 
+
+A simple discord bot which logs output of a program to a (discord) server
