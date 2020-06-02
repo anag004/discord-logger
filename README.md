@@ -6,7 +6,7 @@ Sometimes when running long scripts on multiple servers it is useful to log the 
 
 ## Usage
 
-To run these bots, you must install the [discordpy library](https://discordpy.readthedocs.io/en/latest/). Additionally, note that these bots only work on Python3. Further, before running you must set a environment variable `DISCORD_TOKEN` containing the token of your server. There's a guide [here] on how to create a bot and obtain a token. Note that you need to give your bot permission to read/write messages and manage channels. 
+To run these bots, you must install the [discordpy library](https://discordpy.readthedocs.io/en/latest/). Additionally, note that these bots only work on Python3. Further, before running you must set a environment variable `DISCORD_TOKEN` containing the token of your server. There's a guide [here](https://discordpy.readthedocs.io/en/latest/discord.html) on how to create a bot and obtain a token. Note that you need to give your bot permission to read/write messages and manage channels. 
 
 ### iobot
 
