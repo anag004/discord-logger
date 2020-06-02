@@ -3,6 +3,11 @@ import sys
 import subprocess
 import asyncio
 import time 
+import os
+
+# Echo output of a script to a discord server with a new channel
+# Set the discord token in the env variable DISCORD_TOKEN
+# Make sure you give appropriate permissions to the bot
 
 class MyClient(discord.Client):
     def __init__(self, cmd, channel_name, desc, *args, **kwargs):
@@ -11,7 +16,7 @@ class MyClient(discord.Client):
         self.cmd = cmd
         self.desc = desc
         self.channel = None
-        self.bg_task = self.loop.create_task(self.my_background_task())
+        self.bg_task = self.loop.create_task(self.background_task())
 
     async def on_ready(self):
         print('Logged in as')
@@ -25,13 +30,12 @@ class MyClient(discord.Client):
 
         # Health checkup
         if message.content.startswith('$health'):
-            # channel_name = message.content.split()[1]
-            # await message.guild.create_text_channel(channel_name)
             await message.channel.send('{} - I am awake and running!'.format(channel_name))
 
-    async def my_background_task(self):
+    async def background_task(self):
         print(">> (BOT) Running process...")
         await self.wait_until_ready()
+
         # Create a new channel 
         for guild in self.guilds:
             print(">> (BOT) Creating channel...{}".format(guild))
@@ -70,7 +74,7 @@ class MyClient(discord.Client):
         exit(0)
 
 if (len(sys.argv) != 4):
-    print("python bot.py <cmd> <channel name> <desc>")
+    print("python iobot.py <cmd> <channel name> <desc>")
     exit(1)
 
 cmd = sys.argv[1]
@@ -78,4 +82,4 @@ channel_name = sys.argv[2]
 desc = sys.argv[3]
 
 client = MyClient(cmd, channel_name, desc)
-client.run('Njk4OTEzNzcxNTk4NjQzMjYy.XpMwUg.dDQgXdMbVuBkd6mNvOTUYR3UhPY')
+client.run(os.environ["DISCORD_TOKEN"])
